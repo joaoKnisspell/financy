@@ -14,11 +14,11 @@ interface Props {
 export default function TextInput({ labelText, inputId, placeholder, type = 'text', icon: Icon, description }: Props) {
     return (
         <Field className="flex flex-col gap-2">
-            <FieldLabel htmlFor={inputId}>{labelText}</FieldLabel>
+            <FieldLabel className="text-gray-700 text-sm font-medium" htmlFor={inputId}>{labelText}</FieldLabel>
             <div className="w-full flex items-center gap-3 border rounded-md h-12 px-3 py-1">
-                {Icon && <Icon className="" size={16} />}
+                {Icon && <Icon className="text-gray-400" size={16} />}
                 <Input
-                    className="w-full h-full focus:outline-none focus:ring-0"
+                    className="w-full h-full focus:outline-none focus:ring-0 placeholder:text-gray-400"
                     id={inputId}
                     type={type}
                     placeholder={placeholder}
