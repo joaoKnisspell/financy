@@ -1,5 +1,7 @@
 import financyLogo from '@/assets/financy-logo.svg'
 import { Link, useLocation } from 'react-router'
+import { useAuth } from '@/hooks/use-auth'
+import { getInitials } from '@/lib/utils'
 
 const pages = [
     {
@@ -20,6 +22,7 @@ const pages = [
 export default function Navbar() {
 
     const { pathname } = useLocation()
+    const { user } = useAuth()
 
     return (
         <header className="w-full h-[69px] border-b border-gray-200 bg-white">
@@ -32,9 +35,13 @@ export default function Navbar() {
                         </Link>
                     ))}
                 </nav>
-                <div className='size-9 rounded-full bg-gray-300 flex items-center justify-center'>
-                    <span className='text-sm font-medium'>CT</span>
-                </div>
+                <Link
+                    to="/perfil"
+                    title={user ? user.name : 'Perfil'}
+                    className='size-9 rounded-full bg-gray-300 flex items-center justify-center cursor-pointer hover:opacity-80'
+                >
+                    <span className='text-sm font-medium'>{user ? getInitials(user.name) : ''}</span>
+                </Link>
             </div>
         </header>
     )

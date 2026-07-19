@@ -16,7 +16,7 @@ interface LabelProps extends ComponentProps<'span'> {
 
 function Label({ label, className, ...rest }: LabelProps) {
     return (
-        <span className={cn("text-xs uppercase text-gray-500", className)} {...rest}>{label}</span>
+        <span className={cn("text-xs uppercase font-medium text-gray-500", className)} {...rest}>{label}</span>
     )
 }
 

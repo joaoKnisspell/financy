@@ -4,6 +4,6 @@ interface Props {
 
 export default function CardValue({ text }: Props) {
     return (
-        <span className="font-bold text-[28px]">{text}</span>
+        <span className="font-bold text-[28px] leading-5">{text}</span>
     )
 }
